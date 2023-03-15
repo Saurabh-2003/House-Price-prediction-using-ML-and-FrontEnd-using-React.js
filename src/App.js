@@ -1,86 +1,55 @@
 import React, { useState } from 'react';
-import './App.css';
+import axios from 'axios';
+import './App.css'; // import the CSS file
 
 function App() {
-  const [features, setFeatures] = useState({});
-  const [price, setPrice] = useState('');
+  const [input, setInput] = useState({
+    floors: '',
+    bedrooms: '',
+    bathrooms: '',
+    yr_built: ''
+  });
+  const [prediction, setPrediction] = useState('');
 
-  const handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    setFeatures((prevFeatures) => ({
-      ...prevFeatures,
-      [name]: value
-    }));
+  const handleChange = event => {
+    setInput({ ...input, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
 
-    try {
-      const response = await fetch('/predict', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ features })
+    axios.post('http://localhost:5000/predict', input)
+      .then(response => {
+        setPrediction(response.data.prediction);
+      })
+      .catch(error => {
+        console.log(error);
       });
-
-      const data = await response.json();
-
-      setPrice(data.price);
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   return (
-    <div className="container">
-      <h1 className="title">House Price Prediction</h1>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label className="form-label" htmlFor="area">
-            Area (sqft):
-          </label>
-          <input
-            className="form-control"
-            type="number"
-            name="area"
-            id="area"
-            onChange={handleInputChange}
-          />
+    <div className="form-container"> {/* apply the form-container class */}
+      <h1>House Price Prediction</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Floors : </label>
+          <input type="text" name="floors" onChange={handleChange} value={input.floors} />
         </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="bedrooms">
-            Bedrooms:
-          </label>
-          <input
-            className="form-control"
-            type="number"
-            name="bedrooms"
-            id="bedrooms"
-            onChange={handleInputChange}
-          />
+        <div>
+          <label>Number of bedrooms:</label>
+          <input type="text" name="bedrooms" onChange={handleChange} value={input.bedrooms} />
         </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="bathrooms">
-            Bathrooms:
-          </label>
-          <input
-            className="form-control"
-            type="number"
-            name="bathrooms"
-            id="bathrooms"
-            onChange={handleInputChange}
-          />
+        <div>
+          <label>Number of bathrooms:</label>
+          <input type="text" name="bathrooms" onChange={handleChange} value={input.bathrooms} />
         </div>
-        <button className="btn" type="submit">
-          Predict
-        </button>
+        <div>
+          <label>Years to Build:</label>
+          <input type="text" name="yr_built" onChange={handleChange} value={input.yr_built} />
+        </div>
+        <button type="submit">Predict</button>
       </form>
-      {price && <p className="output">Predicted price: {price}</p>}
+      {prediction && <p className="prediction-text">The predicted price is {prediction}.</p>} {/* apply the prediction-text class */}
     </div>
   );
 }
