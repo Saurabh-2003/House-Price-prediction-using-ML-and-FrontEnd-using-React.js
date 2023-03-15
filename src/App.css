@@ -1,0 +1,121 @@
+/* Reset styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main container */
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f1f6ff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  .title {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2196f3;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2196f3;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #2196f3;
+  }
+  
+  /* Button styles */
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #1565c0;
+  }
+  
+  /* Output label styles */
+  .output {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 2px solid #2196f3;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2196f3;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    animation: fade-in 0.5s ease-in-out forwards;
+  }
+  
+  /* Animations */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Additional styles */
+  body {
+    background-color: #e0eaf5;
+  }
+  
+  .btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  .form-control:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .container {
+      max-width: 800px;
+    }
+  }
+  
