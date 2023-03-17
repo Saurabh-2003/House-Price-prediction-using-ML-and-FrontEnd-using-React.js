@@ -67,7 +67,7 @@ function App() {
           <input type="text" name="sqft_basement" onChange={handleChange} value={input.sqft_basement} />
         </div>  
         <div>
-          <label>Years to Build:</label>
+          <label>Build Year:</label>
           <input type="text" name="yr_built" onChange={handleChange} value={input.yr_built} />
         </div>
         <div>
