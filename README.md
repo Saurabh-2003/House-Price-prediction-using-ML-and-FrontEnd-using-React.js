@@ -1,6 +1,9 @@
-This is Machine learning Project on House price Prediction. This is the first base version of the project that merely focuses on combining all the frameworks and technologies used for accomplishing this task. Tech Stack Used for this is : 
-1). Backend : Flask API
-2). Frontend : ReactJS
-3). Machine Learning : Python 
-4). Version Control : Git 
+This is Machine learning Project on House price Prediction. Statistical Model used is Gradient boost Regressor from sklearn library , the model achieved an accuracy of 80 +% and is currently working with a total of 10 features from dataset taken from kaggle . Tech Stack used is below : 
+ Backend : Flask API
+ Frontend : ReactJS
+ Machine Learning : Python  
+ Version Control : Git 
+
+
+ Dataset  Link :  https://www.kaggle.com/datasets/shivachandel/kc-house-data 
 
