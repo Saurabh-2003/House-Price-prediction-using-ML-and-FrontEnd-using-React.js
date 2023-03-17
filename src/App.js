@@ -85,7 +85,11 @@ function App() {
 
         <button type="submit">Predict</button>
       </form>
-      {prediction && <p className="prediction-text">The predicted price is <div>{prediction}</div></p>} {/* apply the prediction-text class */}
+      {prediction && (
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <div className="prediction-text">The predicted price is: ${prediction}</div>
+  </div>
+)}{/* apply the prediction-text class */}
     </div>
   );
 }

@@ -8,10 +8,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Styles for the input fields */
-.form-container input[type="text"] {
+  animation: fade-in 1s ease-out;
+  }
+  
+  /* Styles for the input fields */
+  .form-container input[type="text"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -19,10 +20,11 @@
   border: none;
   border-bottom: 2px solid #ddd;
   font-size: 16px;
-}
-
-/* Styles for the submit button */
-.form-container button[type="submit"] {
+  animation: slide-in 0.5s ease-out;
+  }
+  
+  /* Styles for the submit button */
+  .form-container button[type="submit"] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
@@ -32,18 +34,71 @@
   font-size: 16px;
   margin-top: 20px;
   transition: background-color 0.3s ease;
-}
-
-/* Hover style for the submit button */
-.form-container button[type="submit"]:hover {
+  animation: pop-in 0.5s ease-out;
+  }
+  
+  /* Hover style for the submit button */
+  .form-container button[type="submit"]:hover {
   background-color: #3e8e41;
-}
-
-/* Style for the prediction text */
-.prediction-text {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  text-align: center;
-  font-weight: bold;
-  color: #4CAF50;
-}
+  animation: bounce 0.5s ease-out;
+  }
+  
+  /* Style for the prediction text */
+  .prediction-text {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+  }
+  
+  /* Animations */
+  @keyframes slide-in {
+  0% {
+  transform: translateY(-50%);
+  opacity: 0;
+  }
+  100% {
+  transform: translateY(0);
+  opacity: 1;
+  }
+  }
+  
+  @keyframes pop-in {
+  0% {
+  transform: scale(0.8);
+  opacity: 0;
+  }
+  100% {
+  transform: scale(1);
+  opacity: 1;
+  }
+  }
+  
+  @keyframes bounce {
+  0% {
+  transform: translateY(0);
+  }
+  50% {
+  transform: translateY(-10px);
+  }
+  100% {
+  transform: translateY(0);
+  }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
