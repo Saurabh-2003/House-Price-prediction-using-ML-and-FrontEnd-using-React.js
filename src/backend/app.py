@@ -17,8 +17,13 @@ def predict():
             return jsonify({'error': 'Invalid request format'})
 
         # Make prediction using the model.
+<<<<<<< HEAD
+        prediction = model.predict([[int(data['floors']),  int(data['bedrooms']), float(data['bathrooms']), int(data['yr_built'])]])[0]
+        
+=======
         prediction = model.predict([[int(data['bedrooms']), float(data['bathrooms']), float(data['sqft_living']), float(data['sqft_lot']), float(data['floors']), int(data['condition']),float(data['sqft_basement']), int(data['yr_built']), int(data['yr_renovated']), float(data['lat']), float(data['long'])]])[0]
 
+>>>>>>> main
         # Convert the prediction to a string and return it.
         output = {'prediction': str(prediction)}
         return jsonify(output)
